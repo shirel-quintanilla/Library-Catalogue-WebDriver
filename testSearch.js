@@ -38,6 +38,6 @@ async function searchTerm(termText) {
 }
 
 //call func
-
+//my test >.<
 searchTerm(searchtext);
 
