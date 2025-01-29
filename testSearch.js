@@ -20,6 +20,7 @@ var input = prompt("Select one: 'Keyword', 'Title', 'Start of Title', 'Series', 
 var place = prompt("Select one: 'in Library Catalog', 'in List', 'in History & Archives': "); 
 
 
+
 async function searchTerm(termText, inputType, searchPlace) {
 
     // Build new window of chrome 
@@ -56,7 +57,7 @@ async function searchTerm(termText, inputType, searchPlace) {
         driver.findElement(By.xpath('//*[@id="searchSource"]/option[2]')).click();
     } else if (searchPlace == "in History & Archives") {
         driver.findElement(By.id("searchSource")).click();
-        driver.findElement(By.xpath('//*[@id="searchIndex"]/option[3]')).click();
+        driver.findElement(By.xpath('//*[@id="searchSource"]/option[3]')).click();
     } else {
 
         }

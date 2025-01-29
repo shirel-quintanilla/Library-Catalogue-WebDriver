@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>New Bar</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="topnav">
+    <select id = "select_one" name="searchIndex" title="The method of searching" aria-label="Search Index">
+      <option value="Keyword" selected="" id="default_search_type">Keyword</option>
+      <option value="Title">Title</option>
+      <option value="StartOfTitle">Start of Title</option>
+      <option value="Series">Series</option><option value="Author">Author</option>
+      <option value="Subject">Subject</option>
+      <option value="LocalCallNumber">Call Number</option></select>
+
+    <script>
+      let select = document.querySelector("select")
+
+      function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+            }
+
+      select.addEventListener("change", (e) => {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      });
+   </script>
+
+    <select name="searchIndex" title="Place of Search" aria-label="Search Index" class = "test">
+      <option value="in Library Catalog" selected="" id="default_search_type">in Library Catalog</option>
+      <option value="in List">in List</option>
+      <option value="in History & Archives">in History & Archives</option></select>
+
+    <script>
+      let select_second = document.querySelector(" .test")
+
+      function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+            }
+
+      select_second.addEventListener("change", (e) => {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      });
+   </script>
+
+    <input type="text" placeholder="Search the catalog">
+
+    <button class= "search" id="button">Search</button>
+    <script>
+        const btn = document.querySelector("button");
+
+        function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+            }
+
+        btn.addEventListener("click", () => {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+        });
+
+    </script>
+
+  </div>
+  <div class="tutorial"> </div>
+
+</body>
+
+</html>

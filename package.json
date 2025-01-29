@@ -9,7 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "chromedriver": "^132.0.1",
+    "chromedriver": "^132.0.2",
     "prompt-sync": "^4.2.0",
     "selenium-webdriver": "^4.28.1"
   }
