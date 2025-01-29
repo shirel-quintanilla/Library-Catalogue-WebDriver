@@ -51,6 +51,16 @@ async function searchTerm(termText, inputType, searchPlace) {
 
     }
 
+    if (searchPlace == "in List") {
+        driver.findElement(By.id("searchSource")).click();
+        driver.findElement(By.xpath('//*[@id="searchSource"]/option[2]')).click();
+    } else if (searchPlace == "in History & Archives") {
+        driver.findElement(By.id("searchSource")).click();
+        driver.findElement(By.xpath('//*[@id="searchIndex"]/option[3]')).click();
+    } else {
+
+        }
+
     // Insert user's search term in cataloge's search bar
     driver.findElement(By.id("lookfor")).sendKeys(termText);
 
