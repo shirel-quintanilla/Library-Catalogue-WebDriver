@@ -21,7 +21,7 @@ var place = prompt("Select one: 'in Library Catalog', 'in List', 'in History & A
 
 
 
-async function searchTerm(termText, inputType, searchPlace) {
+function searchTerm(termText, inputType, searchPlace) {
 
     // Build new window of chrome 
     let driver = new webdriver.Builder().forBrowser("chrome").build(); 

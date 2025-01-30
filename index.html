@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width">
   <title>New Bar</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="functions.js"></script> 
 </head>
 
 <body>
-  <div class="topnav">
+  <div class="topnav" >
     <select id = "select_one" name="searchIndex" title="The method of searching" aria-label="Search Index">
       <option value="Keyword" selected="" id="default_search_type">Keyword</option>
       <option value="Title">Title</option>
@@ -47,28 +48,25 @@
         const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
         document.body.style.backgroundColor = rndCol;
       });
+      window.place 
    </script>
 
-    <input type="text" placeholder="Search the catalog">
+    <input type="text" placeholder="Search the catalog" id="term">
 
-    <button class= "search" id="button">Search</button>
+   <a id="link" href="https://willmstwn.cwmars.org/?browseCategory=main_new_non_fiction">
+    <button class= "search" id="button" >Search</button>
+   </a>
+    
     <script>
-        const btn = document.querySelector("button");
 
-        function random(number) {
-        return Math.floor(Math.random() * (number + 1));
-            }
+      const resultspage = document.getElementById("link");
+      const href = resultspage.getAttribute("href"); 
+      const searchInput = document.getElementById("term").value;
 
-        btn.addEventListener("click", () => {
-        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
-        });
+      href = "https://willmstwn.cwmars.org/Union/Search?view=list&showCovers=on&lookfor="+ searchInput + "&searchIndex=Keyword&searchSource=local";
+      
 
     </script>
-
   </div>
-  <div class="tutorial"> </div>
-
 </body>
-
 </html>

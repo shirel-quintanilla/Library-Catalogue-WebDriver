@@ -11,6 +11,7 @@
   "dependencies": {
     "chromedriver": "^132.0.2",
     "prompt-sync": "^4.2.0",
+    "puppeteer": "^24.1.1",
     "selenium-webdriver": "^4.28.1"
   }
 }
