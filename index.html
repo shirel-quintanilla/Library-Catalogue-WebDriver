@@ -11,7 +11,7 @@
 
 <body>
   <div class="topnav" >
-    <select id = "select_one" name="searchIndex" title="The method of searching" aria-label="Search Index">
+    <select class = "select_one" name="searchIndex" title="The method of searching" aria-label="Search Index">
       <option value="Keyword" selected="" id="default_search_type">Keyword</option>
       <option value="Title">Title</option>
       <option value="StartOfTitle">Start of Title</option>
@@ -20,51 +20,67 @@
       <option value="LocalCallNumber">Call Number</option></select>
 
     <script>
-      let select = document.querySelector("select")
+      //dropdowns NOT functional yet
+      let select = document.getElementById(" .select_one")
+      let indexType = "Keyword"
+      const header = document.getElementById("stupidHeader");
 
-      function random(number) {
-        return Math.floor(Math.random() * (number + 1));
-            }
+        select.addEventListener("change", (e) => {
+        indexType = select.value;
+        header.textContent = indexType;
 
-      select.addEventListener("change", (e) => {
-        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
+
       });
    </script>
-
+    <h3 id = "stupidHeader"> </h3>
     <select name="searchIndex" title="Place of Search" aria-label="Search Index" class = "test">
       <option value="in Library Catalog" selected="" id="default_search_type">in Library Catalog</option>
       <option value="in List">in List</option>
       <option value="in History & Archives">in History & Archives</option></select>
 
-    <script>
-      let select_second = document.querySelector(" .test")
-
-      function random(number) {
-        return Math.floor(Math.random() * (number + 1));
-            }
-
-      select_second.addEventListener("change", (e) => {
-        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
-      });
-      window.place 
-   </script>
 
     <input type="text" placeholder="Search the catalog" id="term">
 
-   <a id="link" href="https://willmstwn.cwmars.org/?browseCategory=main_new_non_fiction">
     <button class= "search" id="button" >Search</button>
-   </a>
     
     <script>
+      const searchButton = document.getElementById("button");
+      //when user hits enter the search button is clicked 
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+        // Simulate a click event on  button
+        searchButton.click(); 
+         }
+      });
 
-      const resultspage = document.getElementById("link");
-      const href = resultspage.getAttribute("href"); 
-      const searchInput = document.getElementById("term").value;
-
-      href = "https://willmstwn.cwmars.org/Union/Search?view=list&showCovers=on&lookfor="+ searchInput + "&searchIndex=Keyword&searchSource=local";
+      //when search button is hit creates appropiate link
       
+      searchButton.addEventListener("click", () => {
+        goToLink();
+      }); 
+
+  
+      //modify link based on terms from user
+      function goToLink() {
+        let searchInput = document.getElementById("term");
+        let term = searchInput.value;
+        let resultspage = 'https://willmstwn.cwmars.org/?browseCategory=main_new_non_fiction';
+
+        if (term == "") {
+          window.location.assign(resultspage);
+        } else{
+          const termArray = term.split(" ");
+          let terms = "";
+          for (let i = 0; i < termArray.length; i++) {
+            terms = terms + termArray[i] + "+";  
+          }
+          const newTerms = terms.slice(0, -1); 
+
+          resultspage = 'https://willmstwn.cwmars.org/Union/Search?view=list&lookfor=' + newTerms + '&searchIndex=' + indexType + '&searchSource=local';
+          //window.location.assign(resultspage);
+          window.open(resultspage, '_blank').focus();
+        }
+      }
 
     </script>
   </div>
